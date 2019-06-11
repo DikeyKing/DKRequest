@@ -30,15 +30,7 @@ void DK_requestFinishCallback(const char *downloadURL,
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    dk_Request(@"https://www.baidu.com/".UTF8String , @"GET".UTF8String , NULL, NULL, DK_requestFinishCallback);
-
-    
-    
     NSString *url = @"https://httpbin.org/post";
-//    NSDictionary *publicParameter = @{
-//                                      @"page_size":@10, //每次获取的个数
-//                                      @"offset":@0
-//                                      };
     NSString *jsonString = @"{\"page_size\":10,\"offset\":0}";
     dk_Request(url.UTF8String , @"POST".UTF8String , jsonString.UTF8String, NULL, DK_requestFinishCallback);
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
